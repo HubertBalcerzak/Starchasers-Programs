@@ -18,6 +18,7 @@ local env = {
 }
 
 function env.sleep(time)
+  time = time or 0.1
   local startTime = uptime()
   while uptime() - startTime < time do
     event._process(time, startTime)
