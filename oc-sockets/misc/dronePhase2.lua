@@ -411,9 +411,9 @@ local function split(inputstr, sep)
 end
 
 local function safeRun(fun, socket, err)
-  local res = pcall(fun, env)
+  local res, errMessage = pcall(fun, env)
   if not res then
-    socket.send(err)
+    socket.send(err .. errMessage)
     return false
   end
   return true
